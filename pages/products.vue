@@ -1,9 +1,17 @@
 <script setup>
     //import {  products  } from '~/server/api/products.json';
-    const { data, error, pending } = await useFetch('https://dummyjson.com/products', {
-        lazy: true,
-        pick: ['products'],
-    });
+
+    //const { data, error, pending } = await useFetch('https://dummyjson.com/products', {
+    //    lazy: true,
+    //    pick: ['products'],
+    //});
+
+    const { data, error, pending } = await useAsyncData('products', () => {
+        return $fetch('https://dummyjson.com/products', {
+            lazy: true,
+            pick: ['products'],
+        })
+    })
 
 </script>
 
