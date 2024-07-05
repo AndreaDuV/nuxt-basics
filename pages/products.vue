@@ -1,14 +1,24 @@
-<script setup lang="ts">
-    import {  products  } from '~/server/api/products.json'
+<script setup>
+    //import {  products  } from '~/server/api/products.json';
+    const { data, error, pending } = await useFetch('https://dummyjson.com/products', {
+        lazy: true,
+        pick: ['products'],
+    });
+
 </script>
 
 
 <template>
     <div>
-        <h1>Page Products</h1>
-        <div class="grid">
-            <Card v-for="product in products" :key="product.id" :="product"/>
+        <h1 v-if="pending">Loading data ...</h1>
+
+        <div v-else>
+            <h1>Page Products</h1>
+            <div class="grid">
+                <Card v-for="product in data.products" :key="product.id" :product="product"/>
+            </div>
         </div>
+        
     </div>
 </template>
 
