@@ -21,7 +21,7 @@ import { NuxtLink } from '../.nuxt/components';
                     <NuxtLink :to="{ name: 'contact' }" class="nav-link" active-class="active">Contact</NuxtLink>
                 </li>
                 <li class="nav-item">
-                    <NuxtLink :to="{ name: 'login' }" class="nav-link" active-class="active">Login</NuxtLink>
+                    <NuxtLink :to="{ name: 'account' }" class="nav-link" active-class="active">Account</NuxtLink>
                 </li>
             </ul>
             </div>
